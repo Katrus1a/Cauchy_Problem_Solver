@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cauchy Problem Solver</title>
+</head>
+<body>
+    <h1>Cauchy Problem Solver</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if plot %}
+        <h2>{{ title }}</h2>
+        <img src="data:image/png;base64,{{ plot }}" alt="Plot">
+        <h3>Results Table:</h3>
+        <table border="1">
+            <tr>
+                <th>i</th>
+                <th>x_i</th>
+                <th>y_i</th>
+            </tr>
+            {% for i, x, y in table_data %}
+            <tr>
+                <td>{{ i }}</td>
+                <td>{{ x }}</td>
+                <td>{{ y }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
