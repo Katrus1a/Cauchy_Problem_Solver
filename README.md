@@ -13,4 +13,3 @@ It provides an interface for users to input data and receive computed solutions.
 - **Django** - Python web framework.
 - **SQLite** - Database management.
 - **HTML/CSS** - Frontend templates.
-
